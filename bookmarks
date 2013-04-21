@@ -1,0 +1,60 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("CSAPP"
+ (filename . "~/Documents/Computer_Science/System Software/Computer Systems - A Programmer's Perspective - Book/_SourceCode/dd2hex.c")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Tomcat"
+ (filename . "/Library/Tomcat/webapps/helloworld/index.html")
+ (front-context-string . "<!--\n  Licensed ")
+ (rear-context-string)
+ (position . 1))
+("C_Test"
+ (filename . "~/Documents/Computer_Science/C&C++/_SourceCode/_SomeTests/FloatEqual.c")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("18649_Distributed_Embedded_System_GitRepo"
+ (filename . "~/Documents/Graduate_Curricula/18649-Distributed_Embedded_Systems/github/proj2/portfolio.html")
+ (front-context-string . "<!DOCTYPE HTML P")
+ (rear-context-string)
+ (position . 1))
+("Java_Test"
+ (filename . "~/Documents/Computer_Science/Java/_SourceCode/_SomeTests/AbstractClass.java")
+ (front-context-string . "abstract public ")
+ (rear-context-string)
+ (position . 1))
+("18641_Java_Smart_Phone_Development"
+ (filename . "~/Documents/Graduate_Curricula/18641-Java_Smart_Phone_Development/Lecture2/_Note.txt")
+ (front-context-string . "BruceEckel.com\nR")
+ (rear-context-string)
+ (position . 1))
+("AlgorithmsI_Coursera_AlgsLibs"
+ (filename . "~/Documents/Computer_Science/Algorithm/Algorithms,partI - Coursera/tools/libs/algs4/MergeBU.java")
+ (front-context-string . "/***************")
+ (rear-context-string)
+ (position . 1))
+("AlgorithmsI_Coursera_PA3"
+ (filename . "~/Documents/Computer_Science/Algorithm/Algorithms,partI - Coursera/PA3/Point.java")
+ (front-context-string . "/***************")
+ (rear-context-string)
+ (position . 1))
+("AlgorithmsI_Coursera_PA2"
+ (filename . "~/Documents/Computer_Science/Algorithm/Algorithms,partI - Coursera/PA2/Deque.java")
+ (front-context-string . "/*\n * Dequeue. A")
+ (rear-context-string)
+ (position . 1))
+("AlgorithmsI_Coursera_PA1"
+ (filename . "~/Documents/Computer_Science/Algorithm/Algorithms,partI - Coursera/PA1/Percolation.java")
+ (front-context-string . "public class Per")
+ (rear-context-string)
+ (position . 1))
+("emacs_config"
+ (filename . "~/.emacs.d/.emacs")
+ (front-context-string . "; M-x erase-buff")
+ (rear-context-string . "'erase-buffer)		")
+ (position . 1135))
+)

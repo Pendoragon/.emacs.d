@@ -126,3 +126,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  automatic generate   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (put 'erase-buffer 'disabled nil)
+
+(add-to-list 'load-path "~/.emacs.d/modes/")
+(require 'go-mode-autoloads)

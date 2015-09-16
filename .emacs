@@ -20,6 +20,7 @@
 ;; set theme and font
 (load-theme 'zenburn t)
 (set-default-font "-apple-Monaco-medium-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+(set-face-attribute 'default nil :height 100) ;; set default font size
 
 ;; enable auto-complete
 (require 'auto-complete-config)
@@ -81,13 +82,14 @@
 (global-set-key (kbd "M-n") 'next-line)	; Set M-n the same as C-n to release finger
 (global-set-key (kbd "M-a") 'move-beginning-of-line) ; Set M-a the same as C-a to release finger
 (global-set-key (kbd "M-e") 'move-end-of-line)	; Set M-e the same as C-e to release finger
-(global-set-key (kbd "C-.") 'semantic-complete-analyze-inline) ; M-x semantic-complete-analyze-inline
+(global-set-key (kbd "C-.") 'godef-jump) ; M-x godef-jump
 (global-set-key (kbd "C-,") 'flymake-display-err-menu-for-current-line) ; M-x flymake-display-err-menu-for-current-line
 (global-set-key (kbd "C-x e") 'erase-buffer) ; M-x erase-buffer (erase entire buffer)
 (global-set-key (kbd "C-s-<left>") 'shrink-window-horizontally)	; shrink window horizontally
 (global-set-key (kbd "C-s-<right>") 'enlarge-window-horizontally) ; enlarge window horizontally
 (global-set-key (kbd "C-s-<down>") 'shrink-window) ; shrink window vertically
 (global-set-key (kbd "C-s-<up>") 'enlarge-window) ; enlarge window vertically
+(global-set-key (kbd "M-<left>") 'undo)
 
 ;; others
 (define-key global-map (kbd "RET") 'newline-and-indent) ; newline and then indent
@@ -108,8 +110,6 @@
 (column-number-mode)		; show column number
 (defalias 'yes-or-no-p 'y-or-n-p) ; answer `y` or `n` for `yes` or `no
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  fun   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; disable bell when hit c-g
 (setq ring-bell-function 
@@ -124,8 +124,22 @@
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  automatic generate   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  automatic generate (go)  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (put 'erase-buffer 'disabled nil)
 
 (add-to-list 'load-path "~/.emacs.d/modes/")
 (require 'go-mode-autoloads)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+(exec-path-from-shell-copy-env "GOPATH")
+
+(defun go-mode-setup ()
+ (setq compile-command "go build -v && go test -v && go vet")
+ (define-key (current-local-map) "\C-c\C-c" 'compile)
+ (go-eldoc-setup)
+ (setq gofmt-command "goimports")
+ (add-hook 'before-save-hook 'gofmt-before-save)
+ (local-set-key (kbd "C-.") 'godef-jump))
+(add-hook 'go-mode-hook 'go-mode-setup)
